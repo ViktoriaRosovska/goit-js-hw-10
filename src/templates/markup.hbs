@@ -1,0 +1,14 @@
+<a href="{{catInfoPageUrl cat}}" target='_blank'>
+    <div class="findCatInfo">
+        <div>
+            <h2>{{cat.name}}</h2>
+            <h3>Description:</h3>
+            <p>{{cat.description}}</p>
+            <h3>Temperament:</h3>
+            <p>{{cat.temperament}}</p>
+        </div>
+        <img class="findCat" src="{{ imageUrl }}">
+    </div>
+</a>
+
+{{!-- {{catInfoPageUrl(data[dataIdx])}} --}}

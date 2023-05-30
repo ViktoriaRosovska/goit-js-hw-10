@@ -1,6 +1,7 @@
 import { fetchBreeds, fetchCatImageUrl } from "./cat-api";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-
+import markupTpl from './templates/markup.hbs';
+import Handlebars from "handlebars";
 const select = document.querySelector('.breed-select');
 const catInfo = document.querySelector('.cat-info');
 // const pError = document.querySelector('.error');
@@ -24,23 +25,12 @@ function selectFromCatBreeds(data) {
     }); 
 }
 
-function getCatDescription(breedId) {
-    const data = breads;
-    // console.log(data);
-    const dataIdx = data.findIndex(({id}) => id === breedId);
-    catInfo.insertAdjacentHTML("beforeend", `
-        <a href=${catInfoPageUrl(data[dataIdx])} target='_blanc'>
-           <div class="findCatInfo">
-            <div>
-                <h2>${data[dataIdx].name}</h2>
-                <h3>Description:</h3>
-                <p>${data[dataIdx].description}</p>
-                <h3>Temperament:</h3>
-                <p>${data[dataIdx].temperament}</p>
-            </div>
-            <img class="findCat" src="" >
-            </div>
-        </a>`)
+Handlebars.registerHelper('catInfoPageUrl', catInfoPageUrl);
+
+function getCatDescription(breedId, imageUrl) {
+    const dataIdx = breads.findIndex(({ id }) => id === breedId);
+    const cat = breads[dataIdx];
+    catInfo.insertAdjacentHTML("beforeend", markupTpl({ cat, imageUrl }))
 };
 
 function catInfoPageUrl(cat)
@@ -66,20 +56,11 @@ select.addEventListener('change', onChangeSelectForChoiceBreed);
 function onChangeSelectForChoiceBreed() {
     showLoader();
     catInfo.innerHTML = '';
-    getCatDescription(select.value);
-    fetchCatImageUrl(select.value).
-        then(insertCatImage).
+    const breadId = select.value;
+    fetchCatImageUrl(breadId).
+        then(url => getCatDescription(breadId, url)).
         catch(fatal).
         finally(hideLoader);
-}
-
-function insertCatImage(url) {
-    const image = document.querySelector('.findCat');
-    image.src = url;
-    image.style.width = '300px';
-    image.style.height = '300px';
-    image.style.objectFit = "scale-down";
-    // catInfo.append(image);
 }
 
 function showLoader() {

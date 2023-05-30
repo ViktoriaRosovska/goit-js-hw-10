@@ -55,7 +55,7 @@ margin-top: 0!important;
   outline-offset: -30px;
   border-radius: 5px;
   padding: 50px;
-  justify-content: space-between;
+  justify-content: center;
   gap: 40px;
   min-width: 375px;
   max-width: 1200px;
@@ -69,6 +69,7 @@ margin-top: 0!important;
 .cat-info img {
   border-radius: 10px;
   overflow: hidden;
+  display: block;
 }
 
 a {
@@ -83,11 +84,17 @@ a {
   margin: 0;
 }
 
+.findCat {
+  width: 300px;
+  height: 300px;
+  object-fit: scale-down;
+}
+
 .findCatInfo {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   gap: 20px;
 }

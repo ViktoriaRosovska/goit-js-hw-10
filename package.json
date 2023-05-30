@@ -18,12 +18,18 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
-    "modern-normalize": "^1.1.0",
+    "@compiled/parcel-transformer": "^0.13.0",
+    "handlebars": "^4.7.7",
     "nice-select2": "^2.1.0",
-    "notiflix": "^3.2.6"
+    "notiflix": "^3.2.6",
+    "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "parcel-transformer-hbs": "^1.0.4",
+    "templates": "^1.2.9"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
+    "modern-normalize": "^1.1.0",
+    "normalize.css": "^8.0.1",
     "parcel": "^2.6.0",
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^1.7.4"
