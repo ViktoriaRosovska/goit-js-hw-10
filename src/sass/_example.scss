@@ -3,6 +3,149 @@
 }
 
 .loader, .error {
-  background-color: yellow;
+  background-color: yellowgreen;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
+.breed-select {
+width: 182px;
+height: 40px;
+margin-top: 0!important;
+}
+
+.breed-select:hover {
+  background-color: yellowgreen;
+  
+}
+.nice-select-dropdown {
+ overflow-y: scroll;
+ width: 180px;
+ height: 230px;
+}
+
+.nice-select .list {
+  margin: 0;
+  border-radius: 0;
+  min-height: 240px!important;
+}
+.nice-select .list li:hover {
+   background-color: yellowgreen !important;
+}
+
+.option {
+  &:hover,
+    &.focus,
+    &.selected.focus {
+      background-color: transparent!important;
+    }
+}
+
+.left {
+  display: flex;
+  align-items: flex-start;
+}
+
+.container {
+  display: flex;
+  outline: 2px solid yellowgreen;
+  flex-direction: row;
+  outline-style: auto;
+  outline-offset: -30px;
+  border-radius: 5px;
+  padding: 50px;
+  justify-content: space-between;
+  gap: 40px;
+  min-width: 375px;
+  max-width: 1200px;
+  margin: 50px auto;
+  flex-wrap: wrap;
+}
+
+.container.invisible {
+  display: none;
+}
+.cat-info img {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+
+.cat-info div h2 {
+  font-size: 40px;
+  margin: 0;
+}
+
+.findCatInfo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.findCatInfo div {
+  max-width: 400px;
+  
+}
+.loaderCSS {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  top: 30px;
+  animation: rotate 1s linear infinite
+}
+.loaderCSS.invisible {
+  display: none;
+}
+
+.loaderCSS::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 5px solid yellowgreen;
+  animation: prixClipFix 2s linear infinite, rotate 0.5s linear infinite reverse;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+  }
+
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+  }
+
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+  }
+
+  75% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%)
+  }
+
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
+  }
+}
