@@ -4,7 +4,6 @@ import markupTpl from './templates/markup.hbs';
 import Handlebars from "handlebars";
 const select = document.querySelector('.breed-select');
 const catInfo = document.querySelector('.cat-info');
-// const pError = document.querySelector('.error');
 
 const loaderCSS = document.querySelector('.loaderCSS');
 const selectContainer = document.querySelector('.container');
